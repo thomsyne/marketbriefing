@@ -8,6 +8,12 @@ import {ObjectService} from '../services/object.service';
   styleUrls: ['./landing.component.scss']
 })
 export class LandingComponent implements OnInit {
+
+  todayNumber: number = Date.now();
+  todayDate : Date = new Date();
+  todayString : string = new Date().toDateString();
+  todayISOString : string = new Date().toISOString();
+
   codes = SymbolCodes;
   ObjectListing = [];
   sectorPerformance = SectorPerformance;
@@ -18,7 +24,7 @@ export class LandingComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-   this.getCodes();
+    this.getCodes();
   }
 
   getCodes(): void {
