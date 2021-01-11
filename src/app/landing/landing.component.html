@@ -1,0 +1,232 @@
+<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+  
+  <div class="py-5 border-b border-gray-200 px-2">
+    <p class="leading-6 text-xs tracking-widest text-gray-400">MARKET BRIEFING</p>
+    <h1 class="text-3xl leading-6 font-medium text-gray-900">Today's market briefing</h1>
+  </div>
+
+  <div class="pt-10 grid px-2 lg:flex lg:grid-rows-10 grid-cols-2 lg:grid-flow-row lg:gap-1 gap-1">
+    <span class="rounded h-48 w-full bg-gray-200 px-2 py-2 relative" *ngFor="let objects of ObjectListing">
+      <p class="w-auto font-bold">{{objects.Symbol}}</p>
+      <p class="overflow-clip overflow-hidden w-auto">{{objects.Name}}</p>
+      
+      <div class="absolute inset-x-0 bottom-1 pr-2">
+        <p class="font-bold text-right pt-10">{{objects.EVToRevenue}}</p>
+        <div class="text-sm text-right font-bold text-red-600" *ngIf="checkInt(objects.ProfitMargin); else green">{{objects.ProfitMargin}}%</div>
+        <ng-template #green>
+          <div class="text-sm font-bold text-right text-green-500">{{objects.ProfitMargin}}%</div>
+        </ng-template>
+      </div>
+    </span>
+    <span class="rounded h-48 w-full bg-gray-200 px-2 py-2 relative" *ngFor="let objects of ObjectListing">
+      <p class="w-auto font-bold">{{objects.Symbol}}</p>
+      <p class="overflow-clip overflow-hidden w-auto">{{objects.Name}}</p>
+
+      <div class="absolute inset-x-0 bottom-1 pr-2">
+        <p class="font-bold text-right pt-10">{{objects.EVToRevenue}}</p>
+        <div class="text-sm text-right font-bold text-red-600" *ngIf="checkInt(objects.ProfitMargin); else green">{{objects.ProfitMargin}}%</div>
+        <ng-template #green>
+          <div class="text-sm font-bold text-right text-green-500">{{objects.ProfitMargin}}%</div>
+        </ng-template>
+      </div>
+    </span>
+  </div>
+
+  <p class="leading-6 text-sm tracking-widest px-2 text-gray-400 py-2">Active stocks last updated {{todayNumber | date}}</p>
+  <div class="flex space-x-2">
+    
+    <div class="w-2/3 border-t border-b px-2 border-gray-200 pb-4">
+      <h1 class="text-3xl leading-6 font-medium  text-gray-900 pt-4">Sector Highlights</h1>
+      <p class="leading-6 text-xs tracking-widest text-gray-400">{{todayDate | date:'medium'}}</p>
+
+      <div class="grid grid-cols-2 gap-2 pt-4">
+        <div class="bg-cover relative rounded bg-no-repeat bg-center h-24" style="background-image: url(https://images.pexels.com/photos/139398/thermometer-headache-pain-pills-139398.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);">
+          <p class="text-white px-2 font-bold">Health Care</p>
+          <div class="absolute inset-x-0 bottom-1 pr-2 flex justify-end">
+            <p class="inline-block bg-green-500 text-right rounded text-white px-1">+0.46%</p>
+        </div>
+        </div>
+        <div class="bg-cover relative rounded bg-no-repeat bg-center h-24" style="background-image: url(https://images.pexels.com/photos/157039/pexels-photo-157039.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);">
+          <p class="text-white px-2 font-bold">Industrials</p>
+          <div class="absolute inset-x-0 bottom-1 pr-2 flex justify-end">
+            <p class="inline-block bg-red-600 text-right rounded text-white px-1">-0.78%</p>
+        </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="w-1/3">
+      <div class="flex">
+      <h1 class="text-2xl leading-6 font-medium text-gray-900 pt-4">My Watchlist</h1>
+      <svg class="w-10 h-10 pt-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+      </svg>
+      </div>
+      <p class="tracking-wide pt-8">Your <em>watchlist is empty</em>. Build your watchlist by starring (<span>
+          <svg class="w-5 h-5 inline-block text-blue-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+          </svg>
+        </span>) the stocks you want to follow.</p>
+    </div>
+  </div>
+
+  <div class="sm:hidden">
+  <h1 class="text-3xl leading-6 font-medium text-gray-900 px-2 py-4">Ex-Dividends</h1>
+  <div class="shadow">
+    <ul class="mt-2 divide-y divide-gray-200 overflow-hidden shadow sm:hidden">
+      <li *ngFor="let objects of ObjectListing">
+        <a href="#" class="block px-4 py-4 bg-white hover:bg-gray-50">
+          <span class="flex items-center space-x-4">
+            <span class="flex-1 flex space-x-2 truncate">
+              <!-- Heroicon name: cash -->
+              <svg class="flex-shrink-0 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+              </svg>
+              <span class="flex flex-col text-gray-500 text-sm truncate">
+                <span class="truncate">{{objects.Symbol}}</span>
+                <span class="text-gray-900 font-medium">{{objects.EVToRevenue}}</span>
+              </span>
+            </span>
+            <!-- Heroicon name: chevron-right -->
+            <svg class="flex-shrink-0 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+            </svg>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+  <div class="flex sm:block hidden">
+    
+    <div class="w-2/3 border-gray-200 pb-4">
+      <h1 class="text-3xl leading-6 font-medium text-gray-900 py-4">Ex-Dividends</h1>
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead>
+          <tr class="border-b border-gray-200 justify-between">
+            <th class="text-left text-gray-400 font-sm tracking-wide">
+              Symbol
+            </th>
+            <th class="text-left text-gray-400 font-sm tracking-wide">
+              Amount
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- <em class="tracking-wide text-gray-400">There are no upcoming dividends.</em> -->
+          <tr [ngClass]=" i%2 === 0 ? 'bg-white' : 'bg-gray-50' "
+             *ngFor="let objects of ObjectListing let i = index ">
+              <td class="tableRow text-left">
+                {{ objects.Symbol}}
+              </td>
+              <td class="tableRow">
+                {{ objects.EVToRevenue}}
+              </td>
+              <td>
+              
+              </td>
+            </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+
+    <div class="w-1/3">
+    </div>
+  </div>
+
+  <h1 class="text-3xl leading-6 sm:block hidden font-medium text-gray-900 py-4">Earnings</h1>
+
+  <table class="table-auto sm:block hidden border-collapse w-full divide-y divide-gray-200">
+    <thead>
+      <tr>
+        <th class="tableHead">
+          Symbol
+        </th>
+        <th class="tableHead">
+          Company
+        </th>
+        <th class="tableHead">
+          Fiscal Period
+        </th>
+        <th class="tableHead">
+          Consensus Estimated EPS
+        </th>
+        <th class="tableHead">
+          Actual EPS
+        </th>
+        <th class="tableHead">
+          Suprise
+        </th>
+        <th class="tableHead">
+          EPS, Year Ago
+        </th>
+        <th class="tableHead">
+          % change From Last Year
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr [ngClass]=" i%2 === 0 ? 'bg-white' : 'bg-gray-50' "
+             *ngFor="let objects of ObjectListing let i = index ">
+              <td class="tableRow text-left inline-block">
+                {{ objects.Symbol}}
+              </td>
+              <td class="tableRow text-left">
+                {{ objects.Company}}
+              </td>
+              <td  class="tableRow text-left">
+                {{ objects.EVToRevenue}}
+              </td>
+              <td  class="tableRow text-left">
+                {{ objects.ProfitMargin}}
+              </td>
+              <td  class="tableRow text-left">
+                {{ objects.Eps}}
+              </td>
+              <td  class="tableRow text-left">
+                {{ objects.DilutedEPSTTM}}
+              </td>
+              <td  class="tableRow text-left">
+                {{ objects.ShortRatio}}
+              </td>
+              <td  class="tableRow text-left">
+                {{ objects.Beta}}
+              </td>
+            </tr>
+    </tbody>
+  </table>
+
+  <div class="border-t px-2 border-gray-200">
+    <h1 class="text-3xl leading-6 font-medium text-gray-900 pt-4">Sector Performance</h1>
+    <p class="leading-6 text-xs tracking-widest text-gray-400">{{todayDate | date:'medium'}}</p>
+  </div>
+
+    <div class="grid lg:grid-cols-4 px-2 grid-cols-2 gap-2 pt-4">
+      <div class="bg-cover relative rounded bg-no-repeat bg-center h-24" *ngFor="let sector of sectorPerformance" [ngStyle]="{'background': 'url(' + sector.image + ') no-repeat 0 0 / cover'}">
+        <p class="text-white px-2 font-bold">{{sector.title}}</p>
+        <div class="absolute inset-x-0 bottom-1 pr-2 flex justify-end">
+          <p class="inline-block bg-red-600 text-right rounded text-white px-1" *ngIf="checkInt(sector.change); else green">{{sector.change}}</p>
+          <ng-template #green>
+            <div class="inline-block bg-green-500 text-right rounded text-white px-1">{{sector.change}}</div>
+          </ng-template>
+      </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-3 px-2 gap-2 py-4">
+      <div class="bg-cover relative rounded bg-no-repeat bg-center h-24" *ngFor="let sectors of sectorPerformances" [ngStyle]="{'background': 'url(' + sectors.image + ') no-repeat 0 0 / cover'}">
+        <p class="text-white px-2 font-bold">{{sectors.title}}</p>
+        <div class="absolute inset-x-0 bottom-1 pr-2 flex justify-end">
+          <p class="inline-block bg-red-600 text-right rounded text-white px-1" *ngIf="checkInt(sectors.change); else green">{{sectors.change}}</p>
+          <ng-template #green>
+            <div class="inline-block bg-green-500 text-right rounded text-white px-1">{{sectors.change}}</div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  
+
+</div>
